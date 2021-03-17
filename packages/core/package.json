@@ -21,5 +21,6 @@
   },
   "dependencies": {
     "@kaku-cli-dev/utils": "^1.0.1"
-  }
+  },
+  "gitHead": "a38a2e05762089c76252e7c44e7f209839783a6c"
 }

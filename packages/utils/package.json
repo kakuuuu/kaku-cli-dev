@@ -18,5 +18,6 @@
   },
   "scripts": {
     "test": "echo \"Run testing from lib\""
-  }
+  },
+  "gitHead": "a38a2e05762089c76252e7c44e7f209839783a6c"
 }
