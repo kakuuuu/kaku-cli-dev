@@ -1,6 +1,6 @@
 {
   "name": "@kaku-cli-dev/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "kaku-cli-dev core",
   "author": "kakuuuu <1245208481@qq.com>",
   "homepage": "",
@@ -20,6 +20,6 @@
     "test": "echo \"Run testing from core\""
   },
   "dependencies": {
-    "@kaku-cli-dev/utils": "^1.0.0"
+    "@kaku-cli-dev/utils": "^1.0.1"
   }
 }
