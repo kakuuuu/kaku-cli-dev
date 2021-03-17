@@ -1,0 +1,25 @@
+{
+  "name": "@kaku-cli-dev/core",
+  "version": "1.0.0",
+  "description": "kaku-cli-dev core",
+  "author": "kakuuuu <1245208481@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "scripts": {
+    "test": "echo \"Run testing from core\""
+  },
+  "dependencies": {
+    "@kaku-cli-dev/utils": "^1.0.0"
+  }
+}

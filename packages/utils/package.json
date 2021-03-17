@@ -1,0 +1,22 @@
+{
+  "name": "@kaku-cli-dev/utils",
+  "version": "1.0.0",
+  "description": "kaku-cli-dev utils",
+  "author": "kakuuuu <1245208481@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/utils.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "scripts": {
+    "test": "echo \"Run testing from lib\""
+  }
+}
