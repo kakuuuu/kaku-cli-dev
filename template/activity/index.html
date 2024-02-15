@@ -10,5 +10,12 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      window.onresize = getRem;
+      function getRem() {
+        document.documentElement.style.fontSize = document.documentElement.offsetWidth / 5 + 'px';
+      }
+      getRem();
+    </script>
   </body>
 </html>

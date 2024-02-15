@@ -2,6 +2,8 @@ const { merge } = require('webpack-merge');
 const path = require('path');
 const base = require('./webpack.base.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const isAnalyseMode = process.env.WEBPACK_EXTRA_ANALYZE == '1';
 const analyzePlugins = isAnalyseMode
@@ -20,8 +22,15 @@ const analyzePlugins = isAnalyseMode
 
 module.exports = merge(base, {
   mode: 'production', // 生产模式
+  module: {
+    rules: [],
+  },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
   plugins: [
     // 配置包分析器
     ...analyzePlugins,
+    // new MiniCssExtractPlugin(),
   ],
 });
