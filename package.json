@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./bin/index.js",
-    "dev": "cross-env NODE_ENV=development webpack serve -c ./scripts/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack -c ./scripts/webpack.prod.js"
+    "cli": "node ./bin/index.js",
+    "create": "node ./bin/index.js create",
+    "dev": "node ./bin/index.js dev",
+    "build": "node ./bin/index.js build"
   },
   "author": "",
   "license": "ISC",

@@ -1,13 +1,14 @@
 var inquirer = require('inquirer');
+const devConfig = require('../devConfig.js');
 
-function inquirerPrompt(argv) {
+function createInquirerPrompt(argv) {
   const { name } = argv;
   return new Promise((resolve, reject) => {
     inquirer
       .prompt([
         {
           type: 'input',
-          name: 'name',
+          name: 'projectName',
           message: '项目名称',
           default: name,
           validate: function (val) {
@@ -32,7 +33,7 @@ function inquirerPrompt(argv) {
               {
                 type: 'list',
                 message: '使用什么项目模板开发',
-                choices: ['template1'],
+                choices: ['activity'],
                 name: 'templateType',
               },
             ])
@@ -54,6 +55,54 @@ function inquirerPrompt(argv) {
   });
 }
 
+function devInquirerPrompt(argv) {
+  return new Promise((resolve, reject) => {
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'projectName',
+          message: '需要启动dev的项目',
+          default: devConfig.devProjectName,
+          validate: function (val) {
+            return true;
+          },
+        },
+      ])
+      .then((answers) => {
+        resolve(answers);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+function buildInquirerPrompt(argv) {
+  return new Promise((resolve, reject) => {
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'projectName',
+          message: '需要打包的项目',
+          default: devConfig.buildProjectName,
+          validate: function (val) {
+            return true;
+          },
+        },
+      ])
+      .then((answers) => {
+        resolve(answers);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
 module.exports = {
-  inquirerPrompt,
+  createInquirerPrompt,
+  devInquirerPrompt,
+  buildInquirerPrompt,
 };

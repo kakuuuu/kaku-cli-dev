@@ -1,10 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
+
 module.exports = {
-  entry: path.resolve(__dirname, '../template/activity/index'),
+  entry: path.resolve(__dirname, `../pages/${projectName}/index`),
   output: {
-    path: path.resolve(__dirname, '../dist'), // 打包后的代码放在dist目录下
+    path: path.resolve(__dirname, `../dist/${projectName}`), // 打包后的代码放在dist目录下
     filename: '[name].[hash:8].js', // 打包的文件名
   },
   resolve: {
