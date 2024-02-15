@@ -10,8 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as Element);
 root.render(
   <React.StrictMode>
     <div>
-      <div className="code">TODO</div>
-      <div className="box-bg">123</div>
+      <div className="code">JUST DO IT</div>
       <img className="box-img" src={imgAssets.nightBg}></img>
     </div>
   </React.StrictMode>

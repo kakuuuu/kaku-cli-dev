@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
 
@@ -91,6 +92,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new WebpackManifestPlugin({}),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../template/activity/index.html'), // 使用自定义模板
     }),
