@@ -33,4 +33,12 @@ output folder .\dist\ \<project>
 
 WebPack 生产环境打包分析
 
-LearnMore:  [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
+LearnMore:
+[webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
+
+
+### `npm run server`
+
+启动服务端
+
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.

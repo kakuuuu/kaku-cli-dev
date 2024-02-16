@@ -9,7 +9,8 @@
     "create": "node ./bin/index.js create",
     "dev": "node ./bin/index.js dev",
     "build": "node ./bin/index.js build",
-    "analyze": "node ./bin/index.js build --analyze"
+    "analyze": "node ./bin/index.js build --analyze",
+    "server": "node ./server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +18,9 @@
     "chalk": "^5.3.0",
     "commander": "12.0.0",
     "inquirer": "8.2.5",
+    "koa": "^2.15.0",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
