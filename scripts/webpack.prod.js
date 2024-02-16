@@ -25,6 +25,11 @@ module.exports = merge(base, {
   module: {
     rules: [],
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    // 这些包通过cdn链接方式导入，不打到包中
+  },
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
   },
