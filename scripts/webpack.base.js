@@ -3,8 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const px2rem = require('postcss-plugin-px2rem');
+const routerConfig = require('../routerConfig');
 
 const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
+const pageConfig = routerConfig.find((item) => item?.pageName === projectName) || {};
 
 module.exports = {
   entry: path.resolve(__dirname, `../pages/${projectName}/index`),

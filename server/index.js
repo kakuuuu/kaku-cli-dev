@@ -14,10 +14,23 @@ router.get('/', (ctx) => {
 
 routerConfig.forEach((config) => {
   const { pageName, routePath } = config;
-  //   app.use(KoaStatic(path.resolve(__dirname, `../dist/${pageName}`), `${pageName}`));
+  let pathReg = new RegExp(`CDN_PUBLICK_PATH_${pageName}\/*`, 'g');
   router.get(routePath, (ctx) => {
+    let htmlStr = fs.readFileSync(path.resolve(__dirname, `../dist/${pageName}/index.html`), 'utf-8');
+    const newhtmlStr = htmlStr.replace(pathReg, `http://localhost:3000${routePath || ''}`);
+
     ctx.type = 'html';
-    ctx.body = fs.readFileSync(path.resolve(__dirname, `../dist/${pageName}/index.html`));
+    ctx.body = newhtmlStr;
+  });
+
+  router.get(pathReg, (ctx) => {
+    // 模糊匹配CDN_PUBLICK_PATH_静态资源,重定向至新url
+    const url = ctx.req.url;
+    const suffixPath = url.split(pathReg)?.at(-1) || '';
+    const redirectUrl = `http://localhost:3000${routePath || ''}` + suffixPath;
+    console.log('request', url, redirectUrl);
+    ctx.status = 302;
+    ctx.redirect(redirectUrl);
   });
 });
 
@@ -27,6 +40,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 app.use(KoaStatic(path.resolve(__dirname, `../dist`)));
+// 静态文件托管
 
 // handle 404 etc.
 app.use(async (ctx, next) => {
