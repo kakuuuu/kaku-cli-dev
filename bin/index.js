@@ -3,7 +3,12 @@ const { createInquirerPrompt, devInquirerPrompt, buildInquirerPrompt } = require
 const commander = require('commander');
 const shell = require('shelljs');
 const path = require('path');
+const fs = require('fs');
 const { copyFile } = require('./copy.js');
+const routerConfig = require('../routerConfig.json');
+const chalk = require('chalk');
+const error = chalk.bold.red;
+const warning = chalk.keyword('orange');
 
 const { program } = commander;
 
@@ -16,13 +21,45 @@ program
   .action((project) => {
     createInquirerPrompt({
       name: project,
-    }).then((res) => {
-      const { projectName, frame, templateType = 'activity' } = res || {};
+    }).then(async (res) => {
+      const { projectName, frame, templateType = 'activity', routePath = '' } = res || {};
       console.log('inquirerPrompt:\n', res);
+      const existSameProject = routerConfig.findIndex((item) => item.pageName === projectName) !== -1;
+      if (existSameProject) {
+        console.log(error('目标projectName已存在'));
+        return;
+      }
 
       const sourceDir = path.join(__dirname, `../template/${templateType}`);
       const targetDir = path.join(__dirname, `../pages/${projectName}`);
-      copyFile(sourceDir, targetDir);
+      try {
+        await copyFile(sourceDir, targetDir);
+        const newDevConfigStr = JSON.stringify({
+          devProjectName: projectName,
+          buildProjectName: projectName,
+        });
+        const newRouterConfigStr = JSON.stringify([
+          ...routerConfig,
+          {
+            pageName: projectName,
+            routePath: routePath,
+          },
+        ]);
+        fs.writeFile(path.join(__dirname, `../devConfig.json`), newDevConfigStr, (error) => {
+          if (error) {
+            console.log(error('An error has occurred while write ../devConfig.json'), error);
+            return;
+          }
+        });
+        fs.writeFile(path.join(__dirname, `../routerConfig.json`), newRouterConfigStr, (error) => {
+          if (error) {
+            console.log(error('An error has occurred while write ../routerConfig.json'), error);
+            return;
+          }
+        });
+      } catch (err) {
+        console.log(error('拷贝失败'));
+      }
     });
   });
 

@@ -42,3 +42,5 @@ LearnMore:
 启动服务端
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+页面路由配置在 .\routerConfig.json 文件中

@@ -1,5 +1,5 @@
 var inquirer = require('inquirer');
-const devConfig = require('../devConfig.js');
+const devConfig = require('../devConfig.json');
 
 function createInquirerPrompt(argv) {
   const { name } = argv;
@@ -14,6 +14,18 @@ function createInquirerPrompt(argv) {
           validate: function (val) {
             if (!/^[0-9a-zA-Z_]+$/.test(val)) {
               return '项目名称只能包含英文、数字、下划线';
+            }
+            return true;
+          },
+        },
+        {
+          type: 'input',
+          name: 'routePath',
+          message: '路由地址',
+          default: `/${name}/`,
+          validate: function (val) {
+            if (!/^\/[a-zA-Z0-9_]+\/$/.test(val)) {
+              return '路由格式为 /<path>/ ,<path>只能包含英文、数字、下划线';
             }
             return true;
           },

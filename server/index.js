@@ -3,7 +3,7 @@ const Router = require('koa-router');
 const path = require('path');
 const fs = require('fs');
 const KoaStatic = require('koa-static');
-const routerConfig = require('../routerConfig.js');
+const routerConfig = require('../routerConfig.json');
 
 const app = new Koa();
 const router = new Router();

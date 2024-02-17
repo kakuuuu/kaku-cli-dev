@@ -4,10 +4,8 @@ const base = require('./webpack.base.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const routerConfig = require('../routerConfig');
 
 const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
-const pageConfig = routerConfig.find((item) => item?.pageName === projectName) || {};
 
 const isAnalyseMode = process.env.WEBPACK_EXTRA_ANALYZE == '1';
 const analyzePlugins = isAnalyseMode
@@ -29,7 +27,7 @@ module.exports = merge(base, {
   output: {
     path: path.resolve(__dirname, `../dist/${projectName}`),
     // publicPath: `http://localhost:3000${pageConfig.routePath || ''}`,
-    publicPath: `CDN_PUBLICK_PATH_${pageConfig.pageName || ''}/`, // 打包后的代码放在dist目录下 指定资源请求路径，(不设置该选项时 默认为该路由下的./路径)
+    publicPath: `CDN_PUBLICK_PATH_${projectName}/`, // 打包后的代码放在dist目录下 指定资源请求路径，(不设置该选项时 默认为该路由下的./路径)
     filename: '[name].[hash:8].js', // 打包的文件名
     clean: true, // 自动将上次打包目录资源清空
   },
