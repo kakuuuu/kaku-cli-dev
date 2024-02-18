@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 371:
+/***/ 324:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -12,15 +12,10 @@
 /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(312);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(536);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(704), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `body {
   margin: 0;
@@ -31,12 +26,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 .code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   font-size: 0.26667rem;
-}
-.box-bg {
-  background: url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat;
-  background-size: 100% 100%;
-  width: 1.33333rem;
-  height: 2.66667rem;
 }
 .box-img {
   /* width: 200px; */
@@ -136,38 +125,6 @@ module.exports = function (cssWithMappingToString) {
     }
   };
   return list;
-};
-
-/***/ }),
-
-/***/ 536:
-/***/ ((module) => {
-
-
-
-module.exports = function (url, options) {
-  if (!options) {
-    options = {};
-  }
-  if (!url) {
-    return url;
-  }
-  url = String(url.__esModule ? url.default : url);
-
-  // If url is already wrapped in quotes, remove them
-  if (/^['"].*['"]$/.test(url)) {
-    url = url.slice(1, -1);
-  }
-  if (options.hash) {
-    url += options.hash;
-  }
-
-  // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
-  }
-  return url;
 };
 
 /***/ }),
@@ -426,7 +383,7 @@ module.exports = domAPI;
 
 /***/ }),
 
-/***/ 556:
+/***/ 936:
 /***/ ((module) => {
 
 
@@ -486,9 +443,6 @@ module.exports = ReactDOM;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -521,33 +475,7 @@ module.exports = ReactDOM;
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "CDN_PUBLICK_PATH_test/";
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			590: 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		// no jsonp function
+/******/ 		__webpack_require__.p = "CDN_PUBLICK_PATH_2024_test1/";
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
@@ -581,11 +509,11 @@ var setAttributesWithoutAttributes_default = /*#__PURE__*/__webpack_require__.n(
 var insertStyleElement = __webpack_require__(808);
 var insertStyleElement_default = /*#__PURE__*/__webpack_require__.n(insertStyleElement);
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-var styleTagTransform = __webpack_require__(556);
+var styleTagTransform = __webpack_require__(936);
 var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/less-loader/dist/cjs.js!./pages/test/index.less
-var test = __webpack_require__(371);
-;// CONCATENATED MODULE: ./pages/test/index.less
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/less-loader/dist/cjs.js!./src/pages/2024_test1/index.less
+var _2024_test1 = __webpack_require__(324);
+;// CONCATENATED MODULE: ./src/pages/2024_test1/index.less
 
       
       
@@ -607,14 +535,14 @@ options.setAttributes = (setAttributesWithoutAttributes_default());
 options.domAPI = (styleDomAPI_default());
 options.insertStyleElement = (insertStyleElement_default());
 
-var update = injectStylesIntoStyleTag_default()(test/* default */.c, options);
+var update = injectStylesIntoStyleTag_default()(_2024_test1/* default */.c, options);
 
 
 
 
-       /* harmony default export */ const pages_test = (test/* default */.c && test/* default */.c.locals ? test/* default */.c.locals : undefined);
+       /* harmony default export */ const pages_2024_test1 = (_2024_test1/* default */.c && _2024_test1/* default */.c.locals ? _2024_test1/* default */.c.locals : undefined);
 
-;// CONCATENATED MODULE: ./pages/test/index.tsx
+;// CONCATENATED MODULE: ./src/pages/2024_test1/index.tsx
 
 
 
@@ -624,7 +552,9 @@ var imgAssets = {
 var root = client.createRoot(document.getElementById('root'));
 root.render( /*#__PURE__*/external_React_default().createElement((external_React_default()).StrictMode, null, /*#__PURE__*/external_React_default().createElement("div", null, /*#__PURE__*/external_React_default().createElement("div", {
   className: "code"
-}, "JUST DO IT!!!"), /*#__PURE__*/external_React_default().createElement("img", {
+}, "2024 test1"), /*#__PURE__*/external_React_default().createElement("div", {
+  className: "code"
+}, "JUST DO IT"), /*#__PURE__*/external_React_default().createElement("img", {
   className: "box-img",
   src: imgAssets.nightBg
 }))));

@@ -16,6 +16,7 @@ routerConfig.forEach((config) => {
   const { pageName, routePath } = config;
   let pathReg = new RegExp(`CDN_PUBLICK_PATH_${pageName}\/*`, 'g');
   router.get(routePath, (ctx) => {
+    console.log('pageName', pageName, ctx.req.url);
     let htmlStr = fs.readFileSync(path.resolve(__dirname, `../dist/${pageName}/index.html`), 'utf-8');
     const newhtmlStr = htmlStr.replace(pathReg, `http://localhost:3000${routePath || ''}`);
 
@@ -39,7 +40,11 @@ app.use(router.routes());
 // 自动丰富 response 相应头，当未设置响应状态(status)的时候自动设置，在所有路由中间件最后设置(全局，推荐)，也可以设置具体某一个路由（局部），例如：router.get('/index', router.allowedMethods()); 这相当于当访问 /index 时才设置
 app.use(router.allowedMethods());
 
-app.use(KoaStatic(path.resolve(__dirname, `../dist`)));
+app.use(
+  KoaStatic(path.resolve(__dirname, `../dist`), {
+    index: false,
+  })
+);
 // 静态文件托管
 
 // handle 404 etc.

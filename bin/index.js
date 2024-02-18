@@ -31,7 +31,7 @@ program
       }
 
       const sourceDir = path.join(__dirname, `../template/${templateType}`);
-      const targetDir = path.join(__dirname, `../pages/${projectName}`);
+      const targetDir = path.join(__dirname, `../src/pages/${projectName}`);
       try {
         await copyFile(sourceDir, targetDir);
         const newDevConfigStr = JSON.stringify({
@@ -58,7 +58,7 @@ program
           }
         });
       } catch (err) {
-        console.log(error('拷贝失败'));
+        console.log(error('拷贝失败'), err);
       }
     });
   });

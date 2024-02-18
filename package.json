@@ -10,7 +10,7 @@
     "dev": "node ./bin/index.js dev",
     "build": "node ./bin/index.js build",
     "analyze": "node ./bin/index.js build --analyze",
-    "server": "node ./server/index.js"
+    "server": "nodemon ./server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +39,7 @@
     "html-webpack-plugin": "^5.6.0",
     "less-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.8.0",
+    "nodemon": "^3.0.3",
     "postcss": "^8.4.35",
     "postcss-loader": "^8.1.0",
     "postcss-plugin-px2rem": "^0.8.1",

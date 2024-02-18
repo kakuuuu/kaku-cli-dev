@@ -7,7 +7,7 @@ const px2rem = require('postcss-plugin-px2rem');
 const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
 
 module.exports = {
-  entry: path.resolve(__dirname, `../pages/${projectName}/index`),
+  entry: path.resolve(__dirname, `../src/pages/${projectName}/index`),
   output: {
     path: path.resolve(__dirname, `../dist/${projectName}`), // 打包后的代码放在dist目录下
     filename: '[name].[hash:8].js', // 打包的文件名
@@ -116,7 +116,7 @@ module.exports = {
   plugins: [
     new WebpackManifestPlugin({}),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, `../pages/${projectName}/index.html`), // 使用自定义模板
+      template: path.resolve(__dirname, `../src/pages/${projectName}/index.html`), // 使用自定义模板
     }),
   ],
 };

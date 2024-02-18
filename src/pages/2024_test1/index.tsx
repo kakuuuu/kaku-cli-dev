@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.less';
 
 const imgAssets = {
-  nightBg: require('../../public/assets/bg_night.jpg'),
+  nightBg: require('../../../public/assets/bg_night.jpg'),
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root') as Element);
