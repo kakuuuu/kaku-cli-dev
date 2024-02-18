@@ -5,12 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./bin/index.js",
+    "web-norm": "web-norm --noEmoji",
     "cli": "node ./bin/index.js",
     "create": "node ./bin/index.js create",
     "dev": "node ./bin/index.js dev",
     "build": "node ./bin/index.js build",
     "analyze": "node ./bin/index.js build --analyze",
-    "server": "nodemon ./server/index.js"
+    "server": "nodemon ./server/index.js",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "postinstallmac": "git config core.hooksPath .husky && chmod 700 .husky/*",
+    "prettierwrite": "prettier --write src/**/*.{vue,ts,js,tsx,jsx}",
+    "prettiercheck": "prettier --check src/**/*.{vue,ts,js,tsx,jsx}",
+    "eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,js,tsx}\" --fix",
+    "commit": "git add . && git-cz"
   },
   "author": "",
   "license": "ISC",
@@ -47,11 +55,41 @@
     "shelljs": "0.8.5",
     "style-loader": "^3.3.4",
     "typescript": "5.3.3",
+    "web-norm": "^1.1.8",
     "webpack": "5.90.1",
     "webpack-bundle-analyzer": "4.10.1",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.0.0",
     "webpack-manifest-plugin": "5.0.0",
-    "webpack-merge": "5.10.0"
+    "webpack-merge": "5.10.0",
+    "eslint": "^7.25.0",
+    "prettier": "^2.7.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@typescript-eslint/eslint-plugin": "5.30.7",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-angular": "^17.0.3",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.9.0",
+    "@commitlint/cz-commitlint": "^17.0.3",
+    "inquirer": "^8.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,jsx,tsx}": [
+      "eslint --cache --fix"
+    ],
+    "*.{js,jsx,ts,tsx,md,html,css,lees,scss,sass}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
