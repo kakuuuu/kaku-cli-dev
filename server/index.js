@@ -14,10 +14,13 @@ router.get('/', (ctx) => {
 
 routerConfig.forEach((config) => {
   const { pageName, routePath } = config;
-  let pathReg = new RegExp(`CDN_PUBLICK_PATH_${pageName}\/*`, 'g');
+  const pathReg = new RegExp(`CDN_PUBLICK_PATH_${pageName}\/*`, 'g');
   router.get(routePath, (ctx) => {
     console.log('pageName', pageName, ctx.req.url);
-    let htmlStr = fs.readFileSync(path.resolve(__dirname, `../dist/${pageName}/index.html`), 'utf-8');
+    const htmlStr = fs.readFileSync(
+      path.resolve(__dirname, `../dist/${pageName}/index.html`),
+      'utf-8'
+    );
     const newhtmlStr = htmlStr.replace(pathReg, `http://localhost:3000${routePath || ''}`);
 
     ctx.type = 'html';
@@ -42,7 +45,7 @@ app.use(router.allowedMethods());
 
 app.use(
   KoaStatic(path.resolve(__dirname, `../dist`), {
-    index: false,
+    index: false
   })
 );
 // 静态文件托管
