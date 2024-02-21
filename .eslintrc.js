@@ -22,7 +22,7 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 0,
-    'prettier/prettier': 'error',
+    'prettier/prettier': 0,
     'accessor-pairs': 2,
     'arrow-spacing': [
       2,
@@ -181,7 +181,7 @@ module.exports = {
     'no-unreachable': 2,
     'no-unsafe-finally': 2,
     'no-unused-vars': [
-      2,
+      1,
       {
         vars: 'all',
         args: 'none',

@@ -20,11 +20,12 @@ program
   .description('create a new project')
   .action((project) => {
     createInquirerPrompt({
-      name: project,
+      name: project
     }).then(async (res) => {
       const { projectName, frame, templateType = 'activity', routePath = '' } = res || {};
       console.log('inquirerPrompt:\n', res);
-      const existSameProject = routerConfig.findIndex((item) => item.pageName === projectName) !== -1;
+      const existSameProject =
+        routerConfig.findIndex((item) => item.pageName === projectName) !== -1;
       if (existSameProject) {
         console.log(error('目标projectName已存在'));
         return;
@@ -36,14 +37,14 @@ program
         await copyFile(sourceDir, targetDir);
         const newDevConfigStr = JSON.stringify({
           devProjectName: projectName,
-          buildProjectName: projectName,
+          buildProjectName: projectName
         });
         const newRouterConfigStr = JSON.stringify([
           ...routerConfig,
           {
             pageName: projectName,
-            routePath: routePath,
-          },
+            routePath: routePath
+          }
         ]);
         fs.writeFile(path.join(__dirname, `../devConfig.json`), newDevConfigStr, (error) => {
           if (error) {
