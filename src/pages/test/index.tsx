@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.less';
+import moment from 'moment';
 
 const memoizedState = []; // hooks 存放在这个数组
 let cursor = 0; // 当前 memoizedState 下标
@@ -35,6 +36,7 @@ function App() {
   useEffect(() => {
     console.log(username);
   }, [username]);
+  const time = moment().format('YYYY_MM_DD');
   return (
     <div>
       <div
@@ -43,6 +45,7 @@ function App() {
         }}
       >
         <div className="code">{count}</div>
+        <div className="code">{time}</div>
         <button
           onClick={() => {
             setCount(count + 1);

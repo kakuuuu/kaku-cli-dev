@@ -20,6 +20,9 @@ module.exports = {
   optimization: {
     minimizer: [new CssMinimizerPlugin()]
   },
+  cache: {
+    type: 'filesystem'
+  },
   module: {
     rules: [
       {

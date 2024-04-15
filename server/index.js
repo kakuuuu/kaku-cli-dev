@@ -50,8 +50,16 @@ app.use(
 );
 // 静态文件托管
 
+app.use(async (ctx, next) => {
+  // console.log('ctx', ctx);
+  console.log('测试中间件1_pre');
+  await next();
+  console.log('测试中间件1_after_next');
+});
+
 // handle 404 etc.
 app.use(async (ctx, next) => {
+  // console.log('ctx', ctx);
   try {
     await next();
     if (ctx.status === 404) {

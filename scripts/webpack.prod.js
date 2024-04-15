@@ -4,6 +4,11 @@ const base = require('./webpack.base.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+var CompressionWebpackPlugin = require('compression-webpack-plugin');
+
+// 分析打包时间
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin();
 
 const projectName = process.env.WEBPACK_EXTRA_PROJECT_NAME;
 
@@ -22,7 +27,7 @@ const analyzePlugins = isAnalyseMode
     ]
   : [];
 
-module.exports = merge(base, {
+const prodWebpackConfig = merge(base, {
   mode: 'production', // 生产模式
   output: {
     path: path.resolve(__dirname, `../dist/${projectName}`),
@@ -44,7 +49,17 @@ module.exports = merge(base, {
   },
   plugins: [
     // 配置包分析器
-    ...analyzePlugins
+    ...analyzePlugins,
+    new CompressionWebpackPlugin({
+      algorithm: 'gzip', // 使用gzip压缩
+      test: /\.js$|\.html$|\.css$/, // 匹配文件名
+      filename: '[path][base].gz', // 压缩后的文件名(保持原文件名，后缀加.gz)
+      minRatio: 0.8, // 压缩率小于1才会压缩
+      threshold: 10240, // 对超过10k的数据压缩
+      deleteOriginalAssets: false // 是否删除未压缩的源文件，谨慎设置，如果希望提供非gzip的资源，可不设置或者设置为false（比如删除打包后的gz后还可以加载到原始资源文件）
+    })
     // new MiniCssExtractPlugin(),
   ]
 });
+
+module.exports = smp.wrap(prodWebpackConfig);
