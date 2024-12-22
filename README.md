@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+正在收集工作区信息
 
+# 项目介绍
 
-## Available Scripts
+## 项目名称
 
-In the project directory, you can run:
+H5 营销活动多页面生成脚手架
 
-### `npm create <project>`
+## 项目描述
 
-添加页面，根据命令行提示创建页面
+该项目是一个用于生成 H5 营销活动多页面的脚手架工具。通过命令行交互，用户可以快速创建、开发和构建多个 H5 页面，并且支持自定义模板和路由配置。项目基于 React 框架，使用 Webpack 进行打包和构建，Koa 作为开发服务器。
 
+## 主要功能
 
-### `npm dev`
+1. **创建新项目页面**：通过命令行交互创建新的 H5 页面，支持自定义项目名称、路由地址和模板类型。
+2. **开发环境调试**：启动开发服务器，支持热更新和自动打开浏览器，方便开发调试。
+3. **生产环境打包**：使用 Webpack 进行生产环境打包，支持打包分析和 Gzip 压缩。
+4. **静态资源托管**：使用 Koa 服务器托管静态资源，支持自定义路由配置。
+5. **代码规范**：集成 ESLint 和 Prettier，保证代码风格一致性和质量。
+6. **Git 提交规范**：使用 Husky 和 Commitlint，确保提交信息符合规范。
 
-开发环境调试，默认为 .\devConfig.json 配置中"devProjectName"字段的页面，或在命令行提示中输入需要调试的页面名
+## 使用说明
 
-Runs the app in the development mode.\
-Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
+### 安装依赖
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+npm install
+```
 
-### `npm run build`
+### 创建新页面
 
-Webpack生产环境打包，默认为 .\devConfig.json 配置中"buildProjectName"字段的项目，或在命令行提示中输入需要打包的页面名
+```sh
+npm run create <project>
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+根据命令行提示创建新页面。
 
-output folder .\dist\ \<project>
+### 启动开发服务器
 
-### `npm run analyze`
+```sh
+npm run dev
+```
 
-WebPack 生产环境打包分析
+启动开发服务器，默认调试 devConfig.json 中配置的页面。
 
-LearnMore:
-[webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer)
+### 生产环境打包
 
+```sh
+npm run build
+```
 
-### `npm run server`
+进行生产环境打包，默认打包 devConfig.json 中配置的页面。
 
-启动服务端
+### 启动服务器
 
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+npm run server
+```
 
-页面路由配置在 .\routerConfig.json 文件中
+启动 Koa 服务器，托管静态资源。
+
+### 代码格式化
+
+```sh
+npm run prettierwrite
+```
+
+格式化代码。
+
+### 代码检查
+
+```sh
+npm run eslint
+```
+
+检查代码规范。
+
+## 配置文件
+
+- devConfig.json ：开发和打包项目名称配置。
+- routerConfig.json ：页面路由配置。
+- .eslintrc.js ：ESLint 配置文件。
+- .prettierrc ：Prettier 配置文件。
+- tsconfig.json ：TypeScript 配置文件。
+
+## 依赖
+
+- React
+- Webpack
+- Koa
+- ESLint
+- Prettier
+- Husky
+- Commitlint
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request 来贡献代码。
