@@ -1,17 +1,18 @@
 # 构建阶段
 FROM node:18-alpine AS builder
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
+# Install pnpm
+RUN npm install -g pnpm@8
+
 COPY package*.json ./
-RUN npm ci --omit=dev
+# 项目安装依赖
+RUN pnpm install
+
+# 复制项目的文件
 COPY . .
-RUN npm run build
 
 # 生产运行阶段
-FROM node:18-alpine
-WORKDIR /app
-ENV NODE_ENV production
-COPY --from=builder /app/build ./build
-RUN npm install -g serve
 
-EXPOSE 3000
-CMD ["serve", "-s", "build", "-l", "3000"]
+EXPOSE 3001
+CMD ["npm", "run", "server"]

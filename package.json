@@ -12,7 +12,7 @@
     "build": "node ./bin/index.js build",
     "docker-build": "docker build -t react-app .",
     "analyze": "node ./bin/index.js build --analyze",
-    "server": "nodemon ./server/index.js",
+    "server": "node ./server/index.js",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
     "postinstallmac": "git config core.hooksPath .husky && chmod 700 .husky/*",

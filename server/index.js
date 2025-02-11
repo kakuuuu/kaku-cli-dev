@@ -21,7 +21,7 @@ routerConfig.forEach((config) => {
       path.resolve(__dirname, `../dist/${pageName}/index.html`),
       'utf-8'
     );
-    const newhtmlStr = htmlStr.replace(pathReg, `http://localhost:3000${routePath || ''}`);
+    const newhtmlStr = htmlStr.replace(pathReg, `http://localhost:3001${routePath || ''}`);
 
     ctx.type = 'html';
     ctx.body = newhtmlStr;
@@ -31,7 +31,7 @@ routerConfig.forEach((config) => {
     // 模糊匹配CDN_PUBLICK_PATH_静态资源,重定向至新url
     const url = ctx.req.url;
     const suffixPath = url.split(pathReg)?.at(-1) || '';
-    const redirectUrl = `http://localhost:3000${routePath || ''}` + suffixPath;
+    const redirectUrl = `http://localhost:3001${routePath || ''}` + suffixPath;
     console.log('request', url, redirectUrl);
     ctx.status = 302;
     ctx.redirect(redirectUrl);
@@ -71,6 +71,6 @@ app.use(async (ctx, next) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('监听3000端口');
+app.listen(3001, () => {
+  console.log('监听3001端口');
 });
